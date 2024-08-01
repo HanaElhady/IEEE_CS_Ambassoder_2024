@@ -1,1 +1,30 @@
+// https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/
+// Find first and last position of element in sorted array
+class Solution {
+    public int[] searchRange(int[] nums, int target) {
+        
+    ArrayList<Integer> arrayList = new ArrayList<>();
+      int index = Arrays.binarySearch(nums, target);
 
+        if (index < 0) {
+           arrayList.add(-1);
+           arrayList.add(-1);
+        } else {
+
+            int left = index;
+            while (left > 0 && nums[left - 1] == target) {
+                left--;
+            }
+
+            int right = index;
+            while (right < nums.length - 1 && nums[right + 1] == target) {
+                right++;
+            }
+
+            arrayList.add(left);
+            arrayList.add(right);
+
+}
+  return arrayList.stream().mapToInt(Integer::intValue).toArray();
+}
+}
