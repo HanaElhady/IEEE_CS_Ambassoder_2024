@@ -10,19 +10,21 @@ public class Main {
         int n = reader.nextInt();
         int start = reader.nextInt();
         int length = reader.nextInt();
-        int result =0;
-        if(n == Math.abs(length))
+
+        int result;
+        if (n == Math.abs(length)) {
             result = start;
-        else {
-            int end = Math.abs(start + length);
-            int max = Math.max(end,n);
-            int min = Math.min(end,n);
-            result = max %min;
-            if (result == 0)
+        } else {
+            int end = start + length;
+            result = ((end % n) + n) % n; 
+
+            if (result == 0) {
                 result = n;
+            }
         }
+        
         System.out.println(result);
-        }
+    }
 
     static class Reader {
         private BufferedReader reader;
