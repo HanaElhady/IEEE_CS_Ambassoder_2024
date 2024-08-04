@@ -1,0 +1,53 @@
+// https://codeforces.com/problemset/problem/330/A
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+int main() {
+    int rows, columns;
+    cin >> rows >> columns;
+   
+    vector<vector<char>> charArr(rows, vector<char>(columns));
+    
+    for (int i = 0; i < rows; ++i) {
+        for (int j = 0; j < columns; ++j) {
+            cin >> charArr[i][j];
+        }
+    }
+
+    int availableCells = 0;
+    int rowsTaken = 0;
+
+    for (int i = 0; i < rows; ++i) {
+        int dots = 0;
+        for (int j = 0; j < columns; ++j) {
+            if (charArr[i][j] == 'S') {
+                break;
+            } else {
+                dots++;
+            }
+        }
+        if (dots == columns) {
+            availableCells += columns; 
+            ++rowsTaken;
+        }
+    }
+
+    for (int i = 0; i < columns; ++i) {
+         int dots = 0;
+        for (int j = 0; j < rows; ++j) {
+            if (charArr[j][i] == 'S') {
+                break;
+            } else {
+                ++dots;
+            }
+        }
+        if (dots == rows) {
+            availableCells += (rows - rowsTaken);
+        }
+    }
+cout << availableCells;
+    
+    return 0;
+}
