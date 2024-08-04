@@ -1,0 +1,57 @@
+//https://codeforces.com/contest/466/problem/A
+
+import java.io.*;
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) throws IOException {
+        Reader reader = new Reader();
+
+        int numOfRides = reader.nextInt();
+        int specialRides = reader.nextInt();
+        int cost = reader.nextInt();
+        int specialCost = getSpecialCost(reader);
+
+        int numRegularRides = numOfRides % specialRides;
+        int numSpecialPackages = numOfRides / specialRides;
+
+
+        int totalRegularCost = numRegularRides * cost + numSpecialPackages * specialCost;
+        totalRegularCost= Math.min(totalRegularCost,numOfRides*cost);
+
+
+        int totalSpecialCost = (int) Math.ceil((double) numOfRides / specialRides) * specialCost;
+
+        int total = Math.min(totalRegularCost, totalSpecialCost);
+
+        System.out.println(total);
+    }
+
+    private static int getSpecialCost(Reader reader) throws IOException {
+        return reader.nextInt();
+    }
+
+    static class Reader {
+        private BufferedReader reader;
+        private StringTokenizer tokenizer;
+
+        public Reader() {
+            reader = new BufferedReader(new InputStreamReader(System.in));
+        }
+
+        public String next() throws IOException {
+            while (tokenizer == null || !tokenizer.hasMoreTokens()) {
+                tokenizer = new StringTokenizer(reader.readLine());
+            }
+            return tokenizer.nextToken();
+        }
+
+        public int nextInt() throws IOException {
+            return Integer.parseInt(next());
+        }
+
+        public long nextLong() throws IOException {
+            return Long.parseLong(next());
+        }
+    }
+}
