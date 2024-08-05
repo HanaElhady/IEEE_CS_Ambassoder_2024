@@ -8,15 +8,15 @@ public class Main {
         Reader reader = new Reader();
 
         int num = reader.nextInt();
-       StringBuilder horizontalAsphaltedRoads = new StringBuilder();
-       StringBuilder VerticalAsphaltedRoads = new StringBuilder();
+        List<Integer> horizontalAsphaltedRoads = new ArrayList<>();
+        List<Integer> VerticalAsphaltedRoads = new ArrayList<>();
         for (int i = 0; i < num * num; i++) {
             int num1 = reader.nextInt();
             int num2 = reader.nextInt();
-            if( horizontalAsphaltedRoads.indexOf(String.valueOf(num1)) < 0 && VerticalAsphaltedRoads.indexOf(String.valueOf(num2)) < 0 ) {
-                System.out.print((i+1) + " ");
-                horizontalAsphaltedRoads.append(num1);
-                VerticalAsphaltedRoads.append(num2);
+            if (!horizontalAsphaltedRoads.contains(num1) && !VerticalAsphaltedRoads.contains(num2)) {
+            System.out.print((i+1) + " ");
+                horizontalAsphaltedRoads.add(num1);
+                VerticalAsphaltedRoads.add(num2);
             }
         }
     }
