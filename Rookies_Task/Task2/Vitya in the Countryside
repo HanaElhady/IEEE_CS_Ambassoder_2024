@@ -1,1 +1,63 @@
 // https://codeforces.com/problemset/problem/719/A
+
+import java.io.*;
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) throws IOException {
+        Reader reader = new Reader();
+
+        int numOfDays = reader.nextInt();
+        int[] arr = new int[numOfDays];
+
+        for (int i = 0; i < numOfDays; i++) {
+            arr[i] = reader.nextInt();
+        }
+        if(numOfDays == 1) {
+            if(arr[0] == 15)
+                System.out.println("DOWN");
+            else if(arr[0] == 0 )
+                System.out.println("UP");
+            else  System.out.println(-1);
+
+            return;
+        }
+        if(arr[arr.length-1] == 15 ) {
+            System.out.println("DOWN");
+            return;
+        }
+        if(arr[arr.length-1] == 0 ) {
+            System.out.println("UP");
+            return;
+        }
+
+
+        if(  ( arr[arr.length-1]- arr[arr.length-2] ) > 0  )
+            System.out.println("UP");
+        else System.out.println("DOWN");
+    }
+
+    static class Reader {
+        private BufferedReader reader;
+        private StringTokenizer tokenizer;
+
+        public Reader() {
+            reader = new BufferedReader(new InputStreamReader(System.in));
+        }
+
+        public String next() throws IOException {
+            while (tokenizer == null || !tokenizer.hasMoreTokens()) {
+                tokenizer = new StringTokenizer(reader.readLine());
+            }
+            return tokenizer.nextToken();
+        }
+
+        public int nextInt() throws IOException {
+            return Integer.parseInt(next());
+        }
+
+        public long nextLong() throws IOException {
+            return Long.parseLong(next());
+        }
+    }
+}
