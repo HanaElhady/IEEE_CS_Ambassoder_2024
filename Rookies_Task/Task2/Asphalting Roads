@@ -1,2 +1,47 @@
 // https://codeforces.com/problemset/problem/583/A
 
+import java.io.*;
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) throws IOException {
+        Reader reader = new Reader();
+
+        int num = reader.nextInt();
+       StringBuilder horizontalAsphaltedRoads = new StringBuilder();
+       StringBuilder VerticalAsphaltedRoads = new StringBuilder();
+        for (int i = 0; i < num * num; i++) {
+            int num1 = reader.nextInt();
+            int num2 = reader.nextInt();
+            if( horizontalAsphaltedRoads.indexOf(String.valueOf(num1)) < 0 && VerticalAsphaltedRoads.indexOf(String.valueOf(num2)) < 0 ) {
+                System.out.print((i+1) + " ");
+                horizontalAsphaltedRoads.append(num1);
+                VerticalAsphaltedRoads.append(num2);
+            }
+        }
+    }
+
+    static class Reader {
+        private BufferedReader reader;
+        private StringTokenizer tokenizer;
+
+        public Reader() {
+            reader = new BufferedReader(new InputStreamReader(System.in));
+        }
+
+        public String next() throws IOException {
+            while (tokenizer == null || !tokenizer.hasMoreTokens()) {
+                tokenizer = new StringTokenizer(reader.readLine());
+            }
+            return tokenizer.nextToken();
+        }
+
+        public int nextInt() throws IOException {
+            return Integer.parseInt(next());
+        }
+
+        public long nextLong() throws IOException {
+            return Long.parseLong(next());
+        }
+    }
+}
