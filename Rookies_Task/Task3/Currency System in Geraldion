@@ -1,0 +1,54 @@
+// https://codeforces.com/problemset/problem/560/A
+
+import java.io.*;
+import java.util.*;
+
+public class Main {
+
+    public static void main(String[] args) throws IOException {
+        Reader scanner = new Reader();
+        int numOfBanknotes = scanner.nextInt();
+        int[] valuesOfBanknotes = new int[numOfBanknotes];
+        
+        // Read banknote values
+        boolean hasOne = false;
+        for (int i = 0; i < numOfBanknotes; i++) {
+            valuesOfBanknotes[i] = scanner.nextInt();
+            if (valuesOfBanknotes[i] == 1) {
+                hasOne = true;
+            }
+        }
+        
+        // Output based on whether there is a banknote of value 1
+        if (hasOne) {
+            System.out.println("-1");
+        } else {
+            System.out.println("1");
+        }
+    }
+
+    static class Reader {
+        private BufferedReader reader;
+        private StringTokenizer tokenizer;
+
+        public Reader() {
+            reader = new BufferedReader(new InputStreamReader(System.in));
+        }
+
+        public String next() throws IOException {
+            while (tokenizer == null || !tokenizer.hasMoreTokens()) {
+                tokenizer = new StringTokenizer(reader.readLine());
+            }
+            return tokenizer.nextToken();
+        }
+
+        public int nextInt() throws IOException {
+            return Integer.parseInt(next());
+        }
+
+        public long nextLong() throws IOException {
+            return Long.parseLong(next());
+        }
+    }
+}
+
