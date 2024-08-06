@@ -1,0 +1,62 @@
+// https://codeforces.com/contest/807/problem/A
+
+import java.io.*;
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) throws IOException {
+       Reader scanner = new Reader();
+        int numOfRounds = scanner.nextInt();
+        int[][] standings = new int[numOfRounds][2];
+        boolean rated = false;
+        for(int i = 0 ; i < numOfRounds ; i++) {
+                int a = scanner.nextInt();
+                standings[i][0] = a;
+                int b = scanner.nextInt();
+                standings[i][1] = b;
+                if (a != b) {
+                rated = true;
+                }
+        }
+        int max = standings[0][0];
+        boolean unrated = false;
+        if(!rated) {
+            for (int i = 1; i < numOfRounds; i++) {
+                if (standings[i][0] > max) {
+                    unrated = true;
+                    break;
+                }
+                max = standings[i][0];
+            }
+        }
+        if(unrated)
+            System.out.println("unrated");
+        else if(rated)
+            System.out.println("rated");
+        else System.out.println("maybe");
+    }
+
+    static class Reader {
+        private BufferedReader reader;
+        private StringTokenizer tokenizer;
+
+        public Reader() {
+            reader = new BufferedReader(new InputStreamReader(System.in));
+        }
+
+        public String next() throws IOException {
+            while (tokenizer == null || !tokenizer.hasMoreTokens()) {
+                tokenizer = new StringTokenizer(reader.readLine());
+            }
+            return tokenizer.nextToken();
+        }
+
+        public int nextInt() throws IOException {
+            return Integer.parseInt(next());
+        }
+
+        public long nextLong() throws IOException {
+            return Long.parseLong(next());
+        }
+    }
+}
