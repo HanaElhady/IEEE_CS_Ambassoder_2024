@@ -1,0 +1,49 @@
+// https://codeforces.com/contest/158/problem/A
+
+import java.io.*;
+import java.util.*;
+
+public class Main {
+
+    public static void main(String[] args) throws IOException {
+        Reader scanner = new Reader();
+
+        int numOfParticipants  = scanner.nextInt();
+        int place = scanner.nextInt()-1;
+        int[] participant = new int[numOfParticipants];
+
+        int quilify = 0;
+        for(int i = 0;i < numOfParticipants ; i++ ) {
+            participant[i] = scanner.nextInt();
+        }
+
+        for(int i = 0 ;i < numOfParticipants ; i++ ) {
+            if (participant[i] >= participant[place] && participant[i] > 0) quilify++;
+        }
+        System.out.println(quilify);
+    }
+
+    static class Reader {
+        private BufferedReader reader;
+        private StringTokenizer tokenizer;
+
+        public Reader() {
+            reader = new BufferedReader(new InputStreamReader(System.in));
+        }
+
+        public String next() throws IOException {
+            while (tokenizer == null || !tokenizer.hasMoreTokens()) {
+                tokenizer = new StringTokenizer(reader.readLine());
+            }
+            return tokenizer.nextToken();
+        }
+
+        public int nextInt() throws IOException {
+            return Integer.parseInt(next());
+        }
+
+        public long nextLong() throws IOException {
+            return Long.parseLong(next());
+        }
+    }
+}
