@@ -1,0 +1,49 @@
+// https://codeforces.com/problemset/problem/520/A
+
+import java.io.*;
+import java.util.*;
+
+public class Main {
+
+    public static void main(String[] args) throws IOException {
+        Reader scanner = new Reader();
+
+        long numOfCharacters  = scanner.nextInt();
+        String str = scanner.next().toLowerCase();
+        int[] arr = new int[26];
+        for(int i = 0 ; i < str.length();i++) {
+            arr[str.charAt(i)-'a']++;
+        }
+        for( int i = 0 ; i <26 ; i ++) {
+            if(arr[i] == 0 ) {
+                System.out.println("NO");
+                return;
+            }
+        }
+        System.out.println("YES");
+    }
+
+    static class Reader {
+        private BufferedReader reader;
+        private StringTokenizer tokenizer;
+
+        public Reader() {
+            reader = new BufferedReader(new InputStreamReader(System.in));
+        }
+
+        public String next() throws IOException {
+            while (tokenizer == null || !tokenizer.hasMoreTokens()) {
+                tokenizer = new StringTokenizer(reader.readLine());
+            }
+            return tokenizer.nextToken();
+        }
+
+        public int nextInt() throws IOException {
+            return Integer.parseInt(next());
+        }
+
+        public long nextLong() throws IOException {
+            return Long.parseLong(next());
+        }
+    }
+}
