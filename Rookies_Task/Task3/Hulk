@@ -1,0 +1,47 @@
+// https://codeforces.com/problemset/problem/705/A
+
+import java.io.*;
+import java.util.*;
+
+public class Main {
+
+    public static void main(String[] args) throws IOException {
+        Reader scanner = new Reader();
+
+        long numOfLayers  = scanner.nextInt();
+        boolean love = false;
+        while(numOfLayers != 0) {
+            if(love) System.out.print("I love ");
+            else System.out.print("I hate ");
+            love =!love;
+            if(numOfLayers != 1)
+                System.out.print("that ");
+            else System.out.print("it");
+            numOfLayers--;
+        }
+    }
+
+    static class Reader {
+        private BufferedReader reader;
+        private StringTokenizer tokenizer;
+
+        public Reader() {
+            reader = new BufferedReader(new InputStreamReader(System.in));
+        }
+
+        public String next() throws IOException {
+            while (tokenizer == null || !tokenizer.hasMoreTokens()) {
+                tokenizer = new StringTokenizer(reader.readLine());
+            }
+            return tokenizer.nextToken();
+        }
+
+        public int nextInt() throws IOException {
+            return Integer.parseInt(next());
+        }
+
+        public long nextLong() throws IOException {
+            return Long.parseLong(next());
+        }
+    }
+}
