@@ -1,0 +1,27 @@
+# Problem 8
+
+# Write a Python program that continuously takes numbers as input from the user and adds them to a list until the user enters 'done'. Then, it calculates and prints the average of the numbers.
+
+# EX:
+
+# Input: 5, 10, 15, done
+
+# Output: "The average is 10."
+
+num =input("Write a num , write 'done' to exit the program : " )
+num_list = []
+      
+sum = 0
+c = 0
+
+while num != 'done' :
+    c +=1
+    num_list.append(int(num))
+    sum = int(num)+ sum
+    num =input("Write a num , write 'done' to exit the program : " )
+    
+if c!=0 :    
+    average = sum//c
+else :
+    average = 0
+print(f"The average is {average}.")
