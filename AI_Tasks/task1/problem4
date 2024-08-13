@@ -1,0 +1,15 @@
+# Problem 4
+
+# -Write a Python program that takes a positive integer as input and calculates the sum of all even numbers from 1 to that integer.
+
+# EX:
+
+# Input: 6
+
+# Output: The sum of even numbers from 1 to 6 is 12 (2 + 4 + 6).
+
+num = int(input("Enter a positive number: "))
+sum = 0;
+for i in range(2 , num+2 , 2) :
+    sum+= i
+print(f"The sum of even numbers from 1 to {num} is {sum}")    
