@@ -1,0 +1,24 @@
+# Problem 1
+
+# -Write a program that takes any numbers from user terminates if user enters -1  
+
+# then prints largest and smallest number
+
+# EX:
+
+# Input : 5 9 12 100 3 8 0 -1
+
+# Output : 100 0
+
+
+max_value = float('-inf')  
+min_value= float('inf')  
+    
+num = int(input("Write number: "))
+while num!= -1 :
+        max_value = max(max_value, num)
+        min_value = min(min_value, num)
+        num = int(input("Write number: "))
+    
+
+print(f"Largest : {max_value} Smallest : {min_value}")
