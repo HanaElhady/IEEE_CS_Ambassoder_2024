@@ -1,0 +1,19 @@
+# Problem 2
+
+# -write a program that takes today’s date and print tomorrow’s date
+
+# EX:
+
+# Input : Day : 1     Month: 4    Year: 2020
+
+# Output :  Day : 2     Month: 4    Year: 2020
+
+    
+day = int(input("Day : "))
+month = int(input("Month: "))
+year = int(input("Year: "))
+
+day+=1
+    
+
+print(f"Day : {day}     Month: {month}    Year: {year}")
