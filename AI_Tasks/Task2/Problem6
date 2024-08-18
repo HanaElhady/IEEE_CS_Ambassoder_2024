@@ -1,0 +1,24 @@
+"""
+Problem6
+
+Write a program that asks the user for input and handles the possibility of the user entering a non-numeric value
+"""
+
+def is_a_number(check_it):
+   
+    if check_it.isdigit() or (check_it[0] == '-' and check_it[1:].isdigit()):
+        return True
+
+    if check_it.count('.') == 1:
+        integer_part, decimal_part = check_it.split('.')
+        return (integer_part.isdigit() or (integer_part and integer_part[0] == '-' and integer_part[1:].isdigit())) and decimal_part.isdigit()
+
+    return False
+
+take_it = input("Enter something: ")
+
+while not is_a_number(take_it):
+    print(f"{take_it} is not a number!")
+    take_it = input("Please enter a number: ")
+
+print(f"Now we're talking business, {take_it} is actually a number finally!")
