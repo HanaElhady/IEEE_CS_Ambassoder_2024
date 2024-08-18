@@ -1,0 +1,22 @@
+'''
+Problem8
+Write a function that takes two sets as input and returns a new set containing the common elements.
+'''
+
+def fun(s1,s2):
+    return  s1.intersection(s2) 
+element_of_set1 = int(input("How many elements do you want for the first set? : "))
+
+set1 = set()
+set2 = set()
+print("Write first set's elements : ")
+
+for i in range(element_of_set1) :
+    set1.add(input())
+   
+element_of_set2 = int(input("How many elements do you want for the second set? : "))   
+print("Write second set's elements : ")    
+for i in range(element_of_set2) :
+    set2.add(input())    
+    
+print(f"The union set is {sorted(fun(set1,set2))}")
