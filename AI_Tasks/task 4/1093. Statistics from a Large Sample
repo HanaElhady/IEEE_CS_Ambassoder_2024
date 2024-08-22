@@ -1,1 +1,47 @@
+#https://leetcode.com/problems/statistics-from-a-large-sample/solutions/5275394/11-49-mb-beats-100-00-of-users-with-python/
+#class Solution(object):
 
+
+
+    def sampleStats(self, count):
+        """
+        :type count: List[int]
+        :rtype: List[float]
+        """
+        total_sum = 0.0
+        minimum = -1
+        maximum = -1
+        mode = 0
+        median = 0
+        L = -1
+        R = -1
+        acc = 0
+        num_of_elements = sum(count)
+        length_of_count = len(count)
+        for i in range(length_of_count):
+            
+            total_sum += count[i]*i
+            
+            if count[i]>0 and minimum==-1:
+                minimum = i
+            
+            if count[i]>0:
+                maximum = i
+            
+            if count[i] > count[mode]:
+                mode = i
+            
+            acc += count[i]
+            if acc == num_of_elements//2 and count[i]>0:
+                L = i
+            elif acc> num_of_elements//2:
+                if R == -1:
+                    R = i
+                if L == -1:
+                    L = R
+        if num_of_elements%2 == 0:
+            median = (L+R)/2.0
+        else:
+            median = R
+        
+        return [minimum, maximum, total_sum/num_of_elements, median, mode]
